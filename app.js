@@ -31,7 +31,7 @@ mongoose
   .connect(process.env.DB_HOST)
   .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log(`Server is running. Use our API on port: ${process.env.PORT}`);
+      console.log(`Server is running. Use our API on port : ${process.env.PORT}`);
     });
   })
   .catch((error) => {
