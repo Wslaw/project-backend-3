@@ -2,8 +2,12 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 import contactsRouter from "./routes/contactsRouter.js";
+
+dotenv.config();
+
 
 const app = express();
 
@@ -22,10 +26,8 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-console.log("ok")
 
-const DB_HOST = "mongodb+srv://UserContacts:UserContacts@cluster0.bqahw9l.mongodb.net/my-contacts?retryWrites=true&w=majority&appName=Cluster0";
-mongoose.connect(DB_HOST)
+mongoose.connect(process.env.DB_HOST)
   .then(() => {
     app.listen(3003, () => {
       console.log("Server is running. Use our API on port: 3003");
