@@ -27,13 +27,14 @@ app.use((err, req, res, next) => {
 });
 
 
-mongoose.connect(process.env.DB_HOST)
+mongoose
+  .connect(process.env.DB_HOST)
   .then(() => {
-    app.listen(3003, () => {
-      console.log("Server is running. Use our API on port: 3003");
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running. Use our API on port: ${process.env.PORT}`);
     });
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error.message);
     process.exit(1);
   });
