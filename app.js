@@ -22,7 +22,7 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-
+console.log("ok")
 
 const DB_HOST = "mongodb+srv://UserContacts:UserContacts@cluster0.bqahw9l.mongodb.net/my-contacts?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.connect(DB_HOST)
