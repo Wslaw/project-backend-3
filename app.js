@@ -26,7 +26,7 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-
+// console.log(DB_HOST);
 mongoose
   .connect(DB_HOST)
   .then(() => {
